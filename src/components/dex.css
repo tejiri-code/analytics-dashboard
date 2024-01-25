@@ -1,11 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap");
 
 :root {
-  --bg-clr: #fff;
-  --primary-clr: #015dfc;
-  --text-clr: #484848;
-  --white: #fff;
-  --hover-clr: #e7f0ff;
+  --light-bg-clr: #fff;
+  --light-primary-clr: #34caa5;
+  --light-text-clr: #484848;
+  --light-white: #fff;
+  --light-hover-clr: #e7f0ff;
+
+  --dark-bg-clr: #1e1e1e;
+  --dark-primary-clr: #61dafb;
+  --dark-text-clr: #fff;
+  --dark-white: #1e1e1e;
+  --dark-hover-clr: #2a2a2a;
+
+  --bg-clr: var(--light-bg-clr);
+  --primary-clr: var(--light-primary-clr);
+  --text-clr: var(--light-text-clr);
+  --white: var(--light-white);
+  --hover-clr: var(--light-hover-clr);
 }
 
 * {
@@ -28,23 +40,18 @@ a {
   color: var(--text-clr);
 }
 
-.pro_img .i{
+.pro_img .i {
   display: block;
   width: 100%;
 }
-
 
 section {
   width: 300px;
   height: auto;
   margin: 20px auto;
-  transition: width 0.5s ease; 
+  transition: width 0.5s ease;
 }
 
-section.active {
-    width: 100px; /* Increase the width when active */
-    transition: width 0.5s ease; /* Add transition to width */
-  }
 .button {
   background: var(--white);
   border-radius: 15px;
@@ -54,21 +61,16 @@ section.active {
   margin-bottom: 30px;
   cursor: pointer;
   text-align: center;
-  transition: all 0.5s ease;
-}
-
-.button:hover {
-  background: var(--primary-clr);
-  color: var(--white);
+ 
 }
 
 .sidebar {
-  width: 300px;
+  width: 100px;
   height: auto;
   background: var(--white);
   padding: 30px;
   border-radius: 15px;
-  transition: all 0.5s ease;
+  
 }
 
 .sidebar .profile {
@@ -82,7 +84,7 @@ section.active {
   width: 50px;
 }
 
-.sidebar .profile .pro_info{
+.sidebar .profile .pro_info {
   width: 190px;
   margin-left: 15px;
   opacity: 1;
@@ -113,7 +115,7 @@ section.active {
 
 .sidebar ul li a .item {
   width: 170px;
-   display: inline-block;
+  display: inline-block;
   vertical-align: text-bottom;
   transition: all 0.5s 0.3s ease;
 }
@@ -130,31 +132,34 @@ section.active {
   transition: all 0.5s ease;
 }
 
-
 /* Active State */
-
+section.active {
+  width: 120px;
+}
 section.active .sidebar {
-  width: 300px;
+  width: 30px;
   padding: 30px 25px;
 }
 
-
+section.active .ul {
+  width: 20px;
+  margin: 0 0 10px;
+}
 section.active .sidebar ul li a {
   width: 50px;
   margin: 0 0 10px;
 }
- 
-section.active .sidebar ul li a .icon{
+
+section.active .sidebar ul li a .icon {
   text-align: center;
-} 
+}
 
-
-section.active .sidebar ul li a .item{
+section.active .sidebar ul li a .item {
   width: 0;
 }
 
 section.active .sidebar ul li a .item,
-section.active .sidebar .profile .pro_info{
+section.active .sidebar .profile .pro_info {
   opacity: 0;
   transition: all 0.2s ease;
 }
@@ -166,7 +171,25 @@ section.active .sidebar ul li a .count {
   font-size: 8px;
 }
 
-ul{
+ul {
   padding-left: 0px;
+}
 
+body.dark-mode {
+  background: var(--dark-bg-clr);
+  color: var(--dark-text-clr);
+}
+
+/* Adjust other styles for dark mode as needed */
+body.dark-mode .sidebar {
+  background: var(--dark-white);
+}
+
+body.dark-mode .sidebar ul li a:hover {
+  color: var(--dark-primary-clr);
+  background: var(--dark-hover-clr);
+}
+body.dark-mode .button {
+  background: var(--dark-white);
+  color: var(--dark-text-clr);
 }

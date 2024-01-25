@@ -1,12 +1,21 @@
-import React , {useState} from 'react'
-import './index.css'
+// LinkShortner.js
+import React, { useState, useEffect } from 'react';
+import './dex.css'
+import { useTheme } from '../context/ThemeContext';
+import { BsFillMoonStarsFill } from 'react-icons/bs';
+import '../index.css'
 
 export default function LinkShortner() {
   const [isActive, setIsActive] = useState(false);
+  const { darkMode, toggleTheme } = useTheme();
 
   const toggleSection = () => {
     setIsActive(!isActive);
   };
+
+  useEffect(() => {
+    document.body.classList.toggle('dark-mode', darkMode);
+  }, [darkMode]);
   const navigationLinks = [
     {
       href: 'example.com',
@@ -52,35 +61,38 @@ export default function LinkShortner() {
       text: 'Settings',
     },
   ];
-
+  console.log('Dark Mode:', darkMode);
   return (
-    <>
-
-    
-  <section className={!isActive ? 'active' : ''}>
-  <div className="button" onClick={toggleSection}>
+    <div>
+    <div className='border-r  border-gray-200'>
+  <section className={!isActive ? 'active' : ''} style={{ color: darkMode ? '#ffffff' : '#000000' }}>
+  <div className="button" onClick={toggleSection} style={{ color: darkMode ? '#ffffff' : '#000000' }}>
     <i className="fa-solid fa-bars" />
   </div>
-  <div className="sidebar">
-    <ul>
+  <div className="sidebar" style={{ color: darkMode ? '#ffffff' : '#000000' }}>
+    <ul style={{ color: darkMode ? '#ffffff' : '#000000' }} >
       {navigationLinks.map((link, index) => (
-        <li key={index}>
+        <li key={index} style={{ color: darkMode ? '#ffffff' : '#000000' }}>
           <a href={link.href} className={link.isActive ? 'active' : ''}>
             <span className="icon">
-              <i className={link.iconClass} />
+              <i className={link.iconClass} style={{ color: darkMode ? '#ffffff' : '#000000' }}/>
             </span>
-            <span className="item">{link.text}</span>
+            <span className="item" style={{ color: darkMode ? '#ffffff' : '#000000' }}>
+                      {link.text}
+                    </span>
             {link.count && <span className="count">{link.count}</span>}
+            
           </a>
+          
         </li>
       ))}
     </ul>
-    
-  </div>
-  
+    </div>
 </section>
-
-    
-</>
+</div>
+<button >
+        <BsFillMoonStarsFill onClick={toggleTheme} className='cursor-pointer text-xl ml-10' />
+      </button>
+</div>
   )
 }

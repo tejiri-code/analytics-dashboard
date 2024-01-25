@@ -10,7 +10,7 @@ const Calendar = () => {
 
   return (
     <div>
-      <p> <i class="fa fa-calendar" aria-hidden="true"></i> {formattedDate}</p>
+      <p> <i className="fa-regular fa-calendar" aria-hidden="true"></i> {formattedDate}</p>
       {/* Your calendar content goes here */}
     </div>
   );
