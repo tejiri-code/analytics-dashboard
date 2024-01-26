@@ -1,5 +1,6 @@
 {
   "name": "analytics-dashboard",
+  "homepage":"http://tejiri.me/analytics-dashboard/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -43,7 +44,7 @@
       "react-app/jest"
     ]
 
-    
+
   },
   "browserslist": {
     "production": [
